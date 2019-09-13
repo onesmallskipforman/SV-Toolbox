@@ -15,4 +15,4 @@ To avoid unecessary generalizations, I use the following heuristic: A module sho
 
 ## Related Work
 
-Several of these modules are featured in other projects of mine, including my AES Encryption Hardware Accelerator (link).
+Several of these modules are featured in other projects of mine, including my [AES Encryption Hardware Accelerator](https://github.com/onesmallskipforman/AES-Accel).

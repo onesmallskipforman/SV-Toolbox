@@ -9,23 +9,25 @@
   upon rising edge of the clock.
 
   Parameters:
-    N: The number of bits for our variable q to increment
+    N: The number of bits for our incrementable variable q
+    M: The number of bits for our increment amount inc
 
   Inputs:
     clk:        clock signat
     reset:      reset signal
     en:         enable signal
-    inc:        amount to increment counter by
+    inc[M-1:0]: amount to increment counter by
 
   Outputs:
     q[N-1:0]: N-bit variable being incremented
 */
 
-module counter#(parameter N=8)
+module counter#(parameter N=8,
+                parameter M=1)
                (input  logic         clk,
                 input  logic         reset,
                 input  logic         en,
-                input  logic         inc,
+                input  logic [M-1:0] inc,
                 output logic [N-1:0] q);
 
   // ensure counter only makes changes as the tick of

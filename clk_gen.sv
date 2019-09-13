@@ -31,10 +31,10 @@ module clk_gen  #(parameter sc_f = 10**6,
                   output logic sc);
 
   parameter sc_bits = $clog2(clk_f/sc_f); // number of bits to use
-  logic [sc_bits:0] inc;                  // variable incremented by counter
+  logic [sc_bits-1:0] inc;                // variable incremented by counter
 
   // implement counter
-  counter #(sc_bits+1) c(clk, reset, en, inc);
+  counter #(sc_bits) c(clk, reset, en, inc);
 
   // assign sc to correct bit of inc
   assign sc = inc[sc_bits];

@@ -18,11 +18,11 @@
     d[N-1:0]:   asynchronous N-bit input signal
     q:          amount to increment counter by
 
-  Local Variables:
-    n1: intermediate value between the two registers
-
   Outputs:
     q[N-1:0]: synchronized N-bit signal
+
+  Internal Variables:
+    n1: intermediate value between the two registers
 */
 
 module sync#(parameter N=8)
