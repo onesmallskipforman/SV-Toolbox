@@ -6,7 +6,7 @@
   generalized enabled serial-to-parallel shift register
 
   Belong is a generalized "serial"-to-parallel shift register. Loading is
-  technicallynot serial as N-bits are shifted in at a time. When enabled,
+  technically not serial as N-bits are shifted in at a time. When enabled,
   Groups of N bits are loaded sequentially with each tick, while all
   the bits of the register are output in parallel as q. Output q can
   hold M many N-bit values, so q is MN bits long.
@@ -37,6 +37,6 @@ module spShiftreg #(parameter N=4,
 
   always_ff @(posedge clk, posedge reset)
     if      (reset)   q <= 0;
-    else if (en)      q <= {q[N-1:0], sin};
+    else if (en)      q <= {q[(M-1)*N-1:0], sin};
 endmodule
 
