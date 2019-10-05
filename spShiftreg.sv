@@ -26,17 +26,17 @@
 
 */
 
-module spShiftreg #(parameter N=4,
-                    parameter M=2)
+module spshiftreg #(parameter N = 4,
+                    parameter M = 2)
                    (input  logic           clk,
                     input  logic           reset,
                     input  logic           en,
                     input  logic [N-1:0]   sin,
-                    output logic [M*N-1:0] q);
+                    output logic [N*M-1:0] q);
 
 
-  always_ff @(posedge clk, posedge reset)
-    if      (reset)   q <= 0;
-    else if (en)      q <= {q[(M-1)*N-1:0], sin};
+  always_ff @(posedge clk)
+    if      (reset) q <= 0;
+    else if (en)    q <= {q[(M-1)*N-1:0], sin};
+
 endmodule
-

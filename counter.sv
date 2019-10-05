@@ -32,7 +32,7 @@ module counter#(parameter N=8,
 
   // ensure counter only makes changes as the tick of
   // the clock or press of reset
-  always_ff @(posedge clk, posedge reset)
+  always_ff @(posedge clk)
 
     // restart q if reset, otherwise increment
     if      (reset)    q <= 0;

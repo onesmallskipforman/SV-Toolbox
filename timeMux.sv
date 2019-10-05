@@ -12,7 +12,7 @@
 
   Parameters:
     N: Number of bits in each of the mux inputs. Defaults to 1.
-    M: The number of bits in the selector. Corresponds to 2^M inputs. Defaults to 1
+    M: The number of N-bit objects in the input. Defaults to 2
 
   Inputs:
     clk: clock signal
@@ -37,7 +37,7 @@ module timeMux #(parameter N=1,
 
   logic [$clog2(M)-1:0] i;
 
-  always_ff @(posedge clk, posedge reset)
+  always_ff @(posedge clk)
     if (reset)
       begin
         b <= 1;
